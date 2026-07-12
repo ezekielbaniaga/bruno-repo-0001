@@ -1,0 +1,21 @@
+info:
+  name: Delete Expense
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: http://localhost:8080/api/expense/019f52ad-0c37-76e0-93b3-6992c89d42ab
+  headers:
+    - name: X-API-Version
+      value: "1.1"
+  auth:
+    type: basic
+    username: admin
+    password: devpassword
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

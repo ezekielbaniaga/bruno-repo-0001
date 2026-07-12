@@ -1,0 +1,27 @@
+info:
+  name: Create Expense
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:8080/api/expense
+  body:
+    type: json
+    data: |-
+      {
+          "description": "BUS Fivestar To Marquee",
+          "amount": 209.00,
+          "category":"transport",
+          "date":"2026-07-10"
+      }
+  auth:
+    type: basic
+    username: admin
+    password: devpassword
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,22 @@
+info:
+  name: DebugToken Validate
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: http://localhost:8080/debug/validate?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzg3NTU5NCwiZXhwIjoxNzgzODc2NDk0fQ.QhZ9MlXmRm8gz6GoX2_tsea7XkSQguVMx32uxLIvf7A
+  params:
+    - name: token
+      value: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzg3NTU5NCwiZXhwIjoxNzgzODc2NDk0fQ.QhZ9MlXmRm8gz6GoX2_tsea7XkSQguVMx32uxLIvf7A
+      type: query
+  auth:
+    type: basic
+    username: admin
+    password: devpassword
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
