@@ -5,13 +5,13 @@ info:
 
 http:
   method: DELETE
-  url: http://localhost:8080/api/expense/019f52ad-0c37-76e0-93b3-6992c89d42ab
+  url: http://localhost:8080/api/expense/019f6788-c334-7622-8dd1-52fd56124d6f
   headers:
     - name: X-API-Version
       value: "1.1"
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzk2MzE1MiwiZXhwIjoxNzgzOTY0MDUyfQ.SwAEo8iuoI5I6w_oO6LRaMBR_BzN5ssVnVIQH9G_OrE
+    token: "{{jwtToken}}"
 
 settings:
   encodeUrl: true

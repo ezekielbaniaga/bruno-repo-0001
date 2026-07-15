@@ -8,7 +8,7 @@ http:
   url: http://localhost:8080/api/expense/categories
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzk2MzE1MiwiZXhwIjoxNzgzOTY0MDUyfQ.SwAEo8iuoI5I6w_oO6LRaMBR_BzN5ssVnVIQH9G_OrE
+    token: "{{jwtToken}}"
 
 settings:
   encodeUrl: true

@@ -15,6 +15,13 @@ http:
       }
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        let token = res.body.accessToken
+        bru.setEnvVar("jwtToken", token);
+
 settings:
   encodeUrl: true
   timeout: 0

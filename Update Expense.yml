@@ -5,20 +5,20 @@ info:
 
 http:
   method: PUT
-  url: http://localhost:8080/api/expense/019e6e50-e3de-74ee-b460-44acde0ed148
+  url: http://localhost:8080/api/expense/019f6788-c334-7622-8dd1-52fd56124d6f
   body:
     type: json
     data: |-
       {
-          "version": 13,
-          "description": "TestUpdate3",
-          "amount": 65.00,
-          "category":"transport",
-          "date":"2026-04-26"
+          "version": 0,
+          "description": "Test Food Item Description Updated",
+          "amount": 30.00,
+          "category":"food",
+          "date":"2026-07-15"
       }
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzk2MzE1MiwiZXhwIjoxNzgzOTY0MDUyfQ.SwAEo8iuoI5I6w_oO6LRaMBR_BzN5ssVnVIQH9G_OrE
+    token: "{{jwtToken}}"
 
 settings:
   encodeUrl: true

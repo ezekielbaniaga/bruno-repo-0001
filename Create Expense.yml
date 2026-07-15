@@ -10,14 +10,14 @@ http:
     type: json
     data: |-
       {
-          "description": "BUS Fivestar To Marquee",
-          "amount": 209.00,
-          "category":"transport",
-          "date":"2026-07-14"
+          "description": "Test Food Item",
+          "amount": 29.00,
+          "category":"food",
+          "date":"2026-07-15"
       }
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzk2MzE1MiwiZXhwIjoxNzgzOTY0MDUyfQ.SwAEo8iuoI5I6w_oO6LRaMBR_BzN5ssVnVIQH9G_OrE
+    token: "{{jwtToken}}"
 
 settings:
   encodeUrl: true

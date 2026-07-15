@@ -15,7 +15,7 @@ http:
       type: query
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVpZCI6IjAxOWY0N2NhLTNjZjEtNzJjNC04NzdmLTAwNjQ2M2YyZTcyZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4Mzk2NTk3MCwiZXhwIjoxNzgzOTY2ODcwfQ.5f_a0oRSoo1HXPUO1OTkzz0HGS3onRBWIPIZiREPXgw
+    token: "{{jwtToken}}"
 
 settings:
   encodeUrl: true
