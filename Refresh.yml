@@ -1,0 +1,31 @@
+info:
+  name: Refresh
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: http://localhost:8080/auth/refresh
+  body:
+    type: json
+    data: |-
+      {
+        "refreshToken": "{{refreshToken}}"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        let token = res.body.accessToken
+        bru.setEnvVar("jwtToken", token);
+
+        let refreshToken = res.body.refreshToken
+        bru.setEnvVar("refreshToken", refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

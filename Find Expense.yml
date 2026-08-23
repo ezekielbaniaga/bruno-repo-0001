@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8080/api/expense/019f6788-c334-7622-8dd1-52fd56124d6f
+  url: http://localhost:8080/api/expense/019f1e13-46d1-7562-b7ce-273a0f43937d
   headers:
     - name: X-API-Version
       value: "1.1"

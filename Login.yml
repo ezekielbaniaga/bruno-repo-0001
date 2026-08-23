@@ -22,6 +22,9 @@ runtime:
         let token = res.body.accessToken
         bru.setEnvVar("jwtToken", token);
 
+        let refreshToken = res.body.refreshToken
+        bru.setEnvVar("refreshToken", refreshToken);
+
 settings:
   encodeUrl: true
   timeout: 0
