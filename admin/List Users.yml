@@ -1,0 +1,36 @@
+info:
+  name: List Users
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/users?page=0&size=20"
+  params:
+    - name: page
+      value: "0"
+      type: query
+    - name: size
+      value: "20"
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          const user = res.body.users.find((u) => u.role !== "ADMIN");
+          if (user) {
+            bru.setEnvVar("userId", user.id);
+            bru.setEnvVar("userVersion", String(user.version));
+          }
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Optional filters: `username`, `enabled`. Stores the first non-admin user as `userId` / `userVersion`."

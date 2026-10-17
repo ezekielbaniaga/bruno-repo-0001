@@ -1,0 +1,11 @@
+info:
+  name: users-me
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+
+docs:
+  content: "UserController: the logged-in user. Any authenticated user."
+  type: text/markdown

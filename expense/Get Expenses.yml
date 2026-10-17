@@ -5,20 +5,16 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8080/api/expense
+  url: "{{baseUrl}}/api/expense"
   headers:
     - name: X-API-Version
       value: "1.1"
-  params:
-    - name: ""
-      value: ""
-      type: query
-  auth:
-    type: bearer
-    token: "{{jwtToken}}"
+  auth: inherit
 
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: "v1.1: `{ expenses, count, total_amount }`."

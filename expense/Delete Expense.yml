@@ -1,0 +1,29 @@
+info:
+  name: Delete Expense
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/expense/{{expenseId}}?version={{expenseVersion}}"
+  params:
+    - name: version
+      value: "{{expenseVersion}}"
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 204) {
+          bru.setEnvVar("archivedExpenseId", bru.getEnvVar("expenseId"));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Archives the expense (204). Requires the current `version`; 409 if stale or already archived.

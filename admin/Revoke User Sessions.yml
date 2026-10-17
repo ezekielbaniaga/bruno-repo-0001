@@ -1,0 +1,17 @@
+info:
+  name: Revoke User Sessions
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/users/{{userId}}/sessions"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Revokes every active session of the user. Returns `{ revoked: n }`."

@@ -1,0 +1,11 @@
+info:
+  name: auth
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+
+docs:
+  content: AuthController. No token needed; Login and Refresh store `jwtToken` and `refreshToken`.
+  type: text/markdown

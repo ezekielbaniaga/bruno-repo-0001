@@ -1,0 +1,17 @@
+info:
+  name: Revoke User Session
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/users/{{userId}}/sessions/{{userSessionId}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: 204, also when already revoked. 404 SESSION_NOT_FOUND if the session isn't this user's.

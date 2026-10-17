@@ -1,0 +1,32 @@
+info:
+  name: Register
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/register"
+  body:
+    type: json
+    data: |-
+      {
+        "username": "{{newUsername}}",
+        "password": "{{newPassword}}"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 201) {
+          bru.setEnvVar("userId", res.body.id);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Creates a USER account (201) and stores its id as `userId` for the admin requests. Returns no tokens. Set the secret `newPassword` first: at least 12 characters, not the username. 409 USERNAME_TAKEN, 400 INVALID_USERNAME / INVALID_PASSWORD."

@@ -1,0 +1,11 @@
+info:
+  name: admin
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit
+
+docs:
+  content: AdminUserController. ADMIN only. `{id}` is the user's unique id (`userId`, set by Register or List Users).
+  type: text/markdown

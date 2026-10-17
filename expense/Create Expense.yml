@@ -1,0 +1,35 @@
+info:
+  name: Create Expense
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/expense"
+  body:
+    type: json
+    data: |-
+      {
+        "description": "Test Food Item",
+        "amount": 29,
+        "category": "food",
+        "date": "2026-07-15"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          bru.setEnvVar("expenseId", res.body.id);
+          bru.setEnvVar("expenseVersion", String(res.body.version));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Stores the new expense as `expenseId` / `expenseVersion` for the requests below.

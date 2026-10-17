@@ -1,11 +1,11 @@
 info:
   name: Refresh
   type: http
-  seq: 13
+  seq: 2
 
 http:
   method: POST
-  url: http://localhost:8080/auth/refresh
+  url: "{{baseUrl}}/auth/refresh"
   body:
     type: json
     data: |-
@@ -18,14 +18,15 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        let token = res.body.accessToken
-        bru.setEnvVar("jwtToken", token);
-
-        let refreshToken = res.body.refreshToken
-        bru.setEnvVar("refreshToken", refreshToken);
+        if (res.status === 200) {
+          bru.setEnvVar("jwtToken", res.body.accessToken);
+          bru.setEnvVar("refreshToken", res.body.refreshToken);
+        }
 
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: Rotates the refresh token. Reusing an old one revokes the whole session.

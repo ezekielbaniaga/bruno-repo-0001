@@ -1,0 +1,32 @@
+info:
+  name: Update User
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/users/{{userId}}"
+  body:
+    type: json
+    data: |-
+      {
+        "version": {{userVersion}},
+        "enabled": false
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          bru.setEnvVar("userVersion", String(res.body.version));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "`enabled` and `role` (`USER` / `ADMIN`) are each optional, at least one is needed. Disabling or demoting revokes the user's sessions. 409 CONCURRENT_MODIFICATION, CANNOT_MODIFY_SELF, LAST_ADMIN."

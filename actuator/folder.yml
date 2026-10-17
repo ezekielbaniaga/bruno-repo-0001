@@ -1,0 +1,11 @@
+info:
+  name: actuator
+  type: folder
+  seq: 5
+
+request:
+  auth: inherit
+
+docs:
+  content: Spring Boot Actuator. Only health is exposed.
+  type: text/markdown

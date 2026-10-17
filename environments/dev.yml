@@ -1,4 +1,30 @@
 name: dev
 variables:
-  - name: jwtToken
+  - name: baseUrl
+    value: http://localhost:8080
+  - name: username
+    value: admin
+  - secret: true
+    name: password
+  - secret: true
+    name: jwtToken
+  - secret: true
+    name: refreshToken
+  - name: newUsername
+    value: testuser
+  - secret: true
+    name: newPassword
+  - name: expenseId
+    value: ""
+  - name: expenseVersion
+    value: ""
+  - name: archivedExpenseId
+    value: ""
+  - name: sessionId
+    value: ""
+  - name: userId
+    value: ""
+  - name: userVersion
+    value: ""
+  - name: userSessionId
     value: ""

@@ -1,0 +1,27 @@
+info:
+  name: Update Archived Expense
+  type: http
+  seq: 10
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/expense/{{archivedExpenseId}}"
+  body:
+    type: json
+    data: |-
+      {
+        "version": 0,
+        "description": "North Ave Terminal",
+        "amount": 85,
+        "category": "transport",
+        "date": "2026-04-26"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Expected to fail: archived expenses can't be changed (409). Uses `archivedExpenseId`, set by Delete Expense or Get Archived Expenses."

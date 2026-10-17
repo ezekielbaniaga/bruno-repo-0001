@@ -1,0 +1,17 @@
+info:
+  name: Revoke Other Sessions
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/users/me/sessions"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: '"Log out everywhere else". Returns `{ revoked: n }`.'

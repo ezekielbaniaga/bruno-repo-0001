@@ -1,0 +1,36 @@
+info:
+  name: Update Expense
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/expense/{{expenseId}}"
+  body:
+    type: json
+    data: |-
+      {
+        "version": {{expenseVersion}},
+        "description": "Test Food Item Description Updated",
+        "amount": 30,
+        "category": "food",
+        "date": "2026-07-15"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          bru.setEnvVar("expenseId", res.body.id);
+          bru.setEnvVar("expenseVersion", String(res.body.version));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: 409 on a stale version.

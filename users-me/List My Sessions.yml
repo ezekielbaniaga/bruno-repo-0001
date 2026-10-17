@@ -1,0 +1,26 @@
+info:
+  name: List My Sessions
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/users/me/sessions"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          const other = res.body.find((s) => !s.current);
+          if (other) bru.setEnvVar("sessionId", other.id);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Active sessions, most recently used first; `current: true` marks this token's session. Stores the first other session as `sessionId`."

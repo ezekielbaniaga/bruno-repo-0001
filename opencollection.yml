@@ -2,6 +2,29 @@ opencollection: 1.0.0
 
 info:
   name: spring-boot-sample
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  auth:
+    type: bearer
+    token: "{{jwtToken}}"
+
+docs:
+  content: |-
+    Requests for the spring-boot-maven-sample backend. Select the `dev` environment, set its secret `password` to the backend's ADMIN_PASSWORD, then run **auth/Login** first.
+
+    Every request inherits `Bearer {{jwtToken}}` from here; Login and Refresh set it.
+  type: text/markdown
 bundled: false
 extensions:
   bruno:

@@ -1,0 +1,33 @@
+info:
+  name: Patch Expense Description
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/api/expense/{{expenseId}}/description"
+  body:
+    type: json
+    data: |-
+      {
+        "version": {{expenseVersion}},
+        "description": "Test Food Item Description Updated and Patched"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200) {
+          bru.setEnvVar("expenseId", res.body.id);
+          bru.setEnvVar("expenseVersion", String(res.body.version));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: 409 on a stale version.
