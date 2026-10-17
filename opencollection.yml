@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: spring-boot-sample
+  name: expense-tracker
 config:
   proxy:
     inherit: true
@@ -21,7 +21,7 @@ request:
 
 docs:
   content: |-
-    Requests for the spring-boot-maven-sample backend. Select the `dev` environment, set its secret `password` to the backend's ADMIN_PASSWORD, then run **auth/Login** first.
+    Requests for the expense-tracker backend. Select the `dev` environment, set its secret `password` to the backend's ADMIN_PASSWORD, then run **auth/Login** first.
 
     Every request inherits `Bearer {{jwtToken}}` from here; Login and Refresh set it.
   type: text/markdown

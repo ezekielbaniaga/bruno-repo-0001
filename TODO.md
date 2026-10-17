@@ -1,7 +1,7 @@
 # TODO
 
-Last investigation: 2026-10-17. Compared this collection with the backend in `../spring-boot`
-(`spring-boot-maven-sample/backend`, branch `master`, at `dbe08a2`).
+Last investigation: 2026-10-17. Compared this collection with the backend in `../expense-tracker`
+(then `../spring-boot`, path `spring-boot-maven-sample/backend`, branch `master`, at `dbe08a2`).
 
 Work items top to bottom, one per commit. When an item is fixed, move it to **Done** with its
 commit hash. Items that need a human decision go in **Needs you**.

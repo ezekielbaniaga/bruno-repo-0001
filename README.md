@@ -1,13 +1,12 @@
 🐶
-Bruno collection for [spring-boot-maven-sample](https://github.com/ezekielbaniaga/spring-boot/tree/master/spring-boot-maven-sample)
+Bruno collection for [expense-tracker](https://github.com/ezekielbaniaga/expense-tracker)
 
 ## Start the backend
 
-From the `spring-boot` repo, either:
+From the `expense-tracker` repo, either:
 
-- `spring-boot-maven-sample/backend/run_postgres_container.sh`, then `spring-boot-maven-sample/run_project.sh`
-  (the `dev` profile), or
-- Docker Compose: in `spring-boot-maven-sample/docker_compose`, `cp .env.example .env`, set the secrets, then
+- in `backend`, `./run_postgres_container.sh`, then `./run_project.sh` (the `dev` profile), or
+- Docker Compose: in `docker_compose`, `cp .env.example .env`, set the secrets, then
   `./run_compose.sh`.
 
 Both listen on `http://localhost:8080`. The backend needs `ADMIN_PASSWORD` (at least 12 characters) and
