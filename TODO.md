@@ -8,13 +8,14 @@ commit hash. Items that need a human decision go in **Needs you**.
 
 ## Needs you
 
-- [ ] **Hardcoded JWTs are committed in git history** (the removed `DebugToken Validate.yml` and the old
-      `Update Archived Expense.yml`). They're expired dev tokens, but if that dev `JWT_SECRET` was ever used
-      anywhere else, rotate it.
+Nothing open.
 
 ## Done
 
-All in one commit, see `git log`.
+- [x] Expired dev JWTs and the old `devpassword` stay in git history: the dev `JWT_SECRET` and that password were
+      only ever used locally, so no rotation, and history isn't rewritten (it's pushed; a rewrite would un-leak nothing)
+
+All in one commit (d03caad):
 
 - [x] Removed `DebugToken.yml` and `DebugToken Validate.yml`: `/debug/*` no longer exists and HTTP Basic is disabled
 - [x] Delete Expense sends `?version={{expenseVersion}}`, which the backend requires
